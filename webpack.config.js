@@ -11,8 +11,6 @@ const WebpackMd5Hash = require('webpack-md5-hash')
 const config = require('./config.json')
 const pkg = require('./package.json')
 
-// const { HashedModuleIdsPlugin } = webpack
-
 const {
   OccurrenceOrderPlugin,
   AggressiveMergingPlugin,
@@ -71,7 +69,7 @@ module.exports = {
       }
     })),
     new HtmlWebpackHarddiskPlugin(),
-    // new AggressiveMergingPlugin(),
+    // new AggressiveMergingPlugin(), // Don't add this!! Chunks won't work as you expected
     new ExtractTextPlugin({
       allChunks: true,
       filename: 'assets/css/[name]-[chunkhash].css'
@@ -87,14 +85,12 @@ module.exports = {
     // optimizations
     new CommonsChunkPlugin({
       children: true,
-      async: 'common',
-      // filename: 'assets/js/vendor-[chunkhash].bundle.js',
+      async: 'common',      
       minChunks: 2
     }),
     new CommonsChunkPlugin({
       children: true,
       async: 'vendor',
-      // filename: 'assets/js/vendor-[chunkhash].bundle.js',
       minChunks: function (module) {
         // this assumes your vendor imports exist in the node_modules directory
         return _isVendor(module)
