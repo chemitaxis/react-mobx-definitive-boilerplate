@@ -11,12 +11,6 @@ const pkg = require('./package.json')
 const config = require('./config.json')
 const { HotModuleReplacementPlugin, NamedModulesPlugin } = webpack
 
-// function _isVendor (module) {
-//   return module.context && module.context.indexOf('node_modules') !== -1
-// }
-
-// const { CommonsChunkPlugin } = webpack.optimize
-
 module.exports = {
   performance: {
     hints: false
