@@ -3,7 +3,7 @@ React + Mobx + React Router 4 + Code Splitting + WebPack 2
 
 This project is the definitive boilerplate for people who want to use:
 - React 
-- Mobx (or othe state managment)
+- Mobx (or other state managment)
 - React Router 4 last version
 - Code Splitting for pages (vendors and commons)
 - Webpack for development & real production
